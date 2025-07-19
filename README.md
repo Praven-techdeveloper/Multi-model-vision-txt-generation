@@ -8,3 +8,25 @@ Features
 - Text-to-speech synthesis with Google gTTS
 - Graceful fallback to user-provided FAQ CSV
 - Robust handling of missing or corrupted data file
+multimodal_chatbot/
+├── data/
+│   ├── kb/                   
+│   └── faq/                   
+│
+├── scripts/
+│   ├── download_wiki.sh       
+│   ├── extract_wiki.sh       
+│   ├── preprocess_kb.py      
+│   └── create_sample_data.py  
+│
+├── src/
+│   ├── encoders.py           
+│   ├── retriever.py           
+│   ├── generator.py           
+│   ├── tts.py               
+│   └── app.py                
+│
+├── requirements.txt          
+├── environment.yml            
+├── Dockerfile                
+└── README.md                 
