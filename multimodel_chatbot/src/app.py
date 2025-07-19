@@ -1,14 +1,11 @@
 import streamlit as st
 from PIL import Image
 import numpy as np
-
 from encoders  import embed_image, embed_text
 from retriever import load_kb_or_faq, build_index, search_index
 from generator import generate_response
 from tts       import synthesize_voice
-
 st.set_page_config(page_title="Multi-Modal Chatbot", layout="wide")
-
 @st.cache_data(show_spinner=False)
 def init_kb():
     kb, texts = load_kb_or_faq()
@@ -21,17 +18,13 @@ def init_kb():
     embs     = embed_text(texts)
     faiss_ix = build_index(embs)
     return kb, texts, faiss_ix
-
 kb_entries, kb_texts, faiss_idx = init_kb()
-
 st.title("🖼️📖 Multi-Modal Vision + Text Chatbot")
 col1, col2 = st.columns(2)
-
 with col1:
     img_file = st.file_uploader("Upload Image", type=["png","jpg","jpeg"])
 with col2:
     query = st.text_input("Enter your question:")
-
 if img_file and query:
     image = Image.open(img_file).convert("RGB")
     st.image(image, use_column_width=True)
