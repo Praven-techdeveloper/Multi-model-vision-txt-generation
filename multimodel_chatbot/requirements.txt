@@ -1,0 +1,10 @@
+streamlit
+torch>=2.6.0                  # Fixes CVE-2025-32434
+torchvision>=0.16.0           # Match torch major/minor
+transformers
+faiss-cpu
+Pillow
+wikiextractor
+numpy
+gTTS
+safetensors                   # Enables safe weight loading
